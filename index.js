@@ -22,6 +22,12 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.options("/payments/intents", cors(corsOptions));
 
+app.get("/payments/intents", (req, res) => {
+  res.send(
+    "This is the payments intents route. Please use POST requests for creating intents."
+  );
+});
+
 app.use("/payments", paymentRoute);
 
 app.listen(PORT, () => {
