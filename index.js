@@ -12,13 +12,15 @@ const PORT = process.env.PORT || 3001;
 // Enable CORS for the frontend
 const corsOptions = {
   origin: "http://localhost:5173", // frontend's origin
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   credentials: true, // if you need to allow cookies or authentication headers
-  optionsSuccessStatus: 200,
+  optionsSuccessStatus: 204,
 };
 
 app.use(cors(corsOptions));
 
 app.use(express.json());
+app.options("/payments/intents", cors(corsOptions));
 
 app.use("/payments", paymentRoute);
 
