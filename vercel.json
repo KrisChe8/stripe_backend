@@ -1,19 +1,20 @@
 {
+    "version": 2,
     "builds": [
         {
             "src": "listen.js",
             "use": "@vercel/node"
         }
     ],
-    "routes": [
+    "rewrites": [
         {
-            "src": "/api/(.*)",
-            "dest": "/listen.js"
+            "source": "/api/(.*)",
+            "destination": "/listen.js"
         }
     ],
     "headers": [
         {
-            "source": "/(.*)",
+            "source": "/api/(.*)",
             "headers": [
                 {
                     "key": "Access-Control-Allow-Origin",
