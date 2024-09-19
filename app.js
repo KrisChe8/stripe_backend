@@ -10,7 +10,7 @@ const app = express();
 
 // Enable CORS for the frontend
 const corsOptions = {
-  origin: "https://event-board-psi.vercel.app/*", // frontend's origin
+  origin: "*", // frontend's origin
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   credentials: true, // if you need to allow cookies or authentication headers
   optionsSuccessStatus: 204,
